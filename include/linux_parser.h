@@ -4,6 +4,7 @@
 #include <fstream>
 #include <regex>
 #include <string>
+#include <vector>
 
 namespace LinuxParser {
 // Paths
@@ -40,6 +41,16 @@ enum CPUStates {
   kGuest_,
   kGuestNice_
 };
+enum CPUTime { kIdleTime_ = 0, kActiveTime_, kTotalTime_ };
+
+enum MemoryType {
+  kMemTotal_ = 0,
+  kMemFree_,
+  kMemAvailable_,
+  kMemBuffer_,
+  kMemCached_
+};
+
 std::vector<std::string> CpuUtilization();
 long Jiffies();
 long ActiveJiffies();
